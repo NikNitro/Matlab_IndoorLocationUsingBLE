@@ -1,3 +1,4 @@
+    % This code has been created by Adrián M. Lloret.
 %%Inicializo
 clear all, clc
 figure(1);hold on; axis equal; grid on;axis([-1 10 -1 10]); 

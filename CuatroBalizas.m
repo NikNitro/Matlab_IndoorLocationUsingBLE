@@ -1,3 +1,4 @@
+    % This code has been created by Adrián M. Lloret.
 %%Inicializo
 clear all, clc
 figure(1);hold on; axis equal; grid on;axis([-20 930 -20 700]); 
@@ -71,18 +72,23 @@ for i=1:numDist
             [solx, soly] = solve(distancias(i),distancias(j));
             % Guardamos la x
             for k=1:length(solx)
-                if(mapObjX.isKey(single(solx(k))))
-                    mapObjX(single(solx(k))) = (mapObjX(single(solx(k))) + 1);
+                % INICIO Update 1
+ %               if(mapObjX.isKey(single(solx(k)))) 
+                goodKey = IsThereASimilarKey(mapObjX, single(solx(k)));
+                if(goodKey~=-1)
+                    mapObjX(goodKey) = (mapObjX(goodKey) + 1);
                 else
                     mapObjX(single(solx(k))) = 1;
                 end;
             end;
             % Y guardamos la y
             for k=1:length(soly)
-                if(mapObjY.isKey(single(soly(k))))
-                    mapObjY(single(soly(k))) = (mapObjY(single(soly(k))) + 1);
+                goodKey = IsThereASimilarKey(mapObjY, single(soly(k)));
+                if(goodKey~=-1)
+                    mapObjY(goodKey) = (mapObjY(goodKey) + 1);
                 else
                     mapObjY(single(soly(k))) = 1;
+                    % FIN Update 1
                 end;
             end;
         end;

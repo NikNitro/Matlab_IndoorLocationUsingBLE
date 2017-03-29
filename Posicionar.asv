@@ -1,8 +1,0 @@
-function [ elemX, elemY ] = Posicionar( input_args )
-%POSICIONAR Recibe las distancias a cada baliza en forma de ecuación y
-% devuelve la posición del elemento a encontrar.
-%   Detailed explanation goes here
-
-
-end
-
